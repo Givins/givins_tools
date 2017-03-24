@@ -45,3 +45,21 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.exp
+tools/GivinsProject.opensdf
+*.sdf
+tools/GMacroFiles/Debug/GMacroFiles.tlog/cl.command.1.tlog
+*.tlog
+tools/GMacroFiles/Debug/vc120.idb
+*.def
+*.ipch
+tools/NetManager/Debug/vc120.idb
+tools/UserTools/RCa05804
+tools/UserTools/RCa06772
+tools/UserTools/RDa06772
+tools/UserTools/RDa05804
+tools/UserTools/RCa06412
+tools/UserTools/RDa06412
+tools/UserTools/RCa07396
+tools/UserTools/RDa07396
+*.idb
