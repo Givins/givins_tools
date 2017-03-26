@@ -51,7 +51,6 @@ tools/GivinsProject.opensdf
 tools/GMacroFiles/Debug/GMacroFiles.tlog/cl.command.1.tlog
 *.tlog
 tools/GMacroFiles/Debug/vc120.idb
-*.def
 *.ipch
 tools/NetManager/Debug/vc120.idb
 tools/UserTools/RCa05804
