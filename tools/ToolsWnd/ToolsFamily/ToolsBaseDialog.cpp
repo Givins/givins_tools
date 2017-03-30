@@ -62,6 +62,7 @@ LOGFONT CToolsBaseDialog::GetGivinsFont(int nType)
 		lf.lfWidth = 0;
 		lf.lfWeight = FW_BLACK;
 		lf.lfUnderline = 0;
+		lf.lfStrikeOut = 0;
 		wcscpy_s(lf.lfFaceName, _T("Î¢ÈíÑÅºÚ"));
 		return lf;
 	}

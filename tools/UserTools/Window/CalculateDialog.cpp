@@ -82,7 +82,7 @@ void CCalculateDialog::DrawMain(CDC* pDC)
 	gs.FillRectangle(&sb,RectF(rcRect.left,rcRect.top,rcRect.Width(),rcRect.Height()));
 	sb.SetColor(crText);
 	StringFormat sf;
-	sf.SetAlignment(StringAlignmentCenter);
+	sf.SetAlignment(StringAlignmentNear);
 	sf.SetLineAlignment(StringAlignmentCenter);
 	for (int nE = 0; nE < CALCULATE_ROW_COUNT; nE++){
 		rcDraw = m_rcRow[nE];
@@ -134,7 +134,9 @@ int CCalculateDialog::OnCreate(LPCREATESTRUCT lpCreateStruct)
 CEdit * CCalculateDialog::CreateEdit(int nId)
 {
 	CEdit *pEdit = new CEdit;
-	pEdit->Create(WS_CHILD | WS_CLIPCHILDREN |ES_CENTER| WS_VISIBLE|ES_AUTOHSCROLL|ES_MULTILINE, CRect(0, 0, 0, 0), this, nId);
+	//pEdit->Create(WS_CHILD | WS_CLIPCHILDREN |ES_CENTER| WS_VISIBLE|ES_AUTOHSCROLL|ES_MULTILINE, CRect(0, 0, 0, 0), this, nId);
+	pEdit->Create(ES_AUTOHSCROLL | ES_LEFT | WS_VISIBLE | ES_MULTILINE | ES_WANTRETURN, CRect(0, 0, 0, 0), this, nId);
+	
 	//CFont font;
 	//LOGFONT lf = GetGivinsFont();
 	//lf.lfHeight = 60;
@@ -183,7 +185,7 @@ CString  CCalculateDialog::GetBtnText(int nIdex)
 	switch (nIdex)
 	{
 	case row_Time:
-		return _T("time转时分秒");
+		return _T("Time转时分秒");
 		break;
 	default:
 		break;

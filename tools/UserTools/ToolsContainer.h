@@ -15,6 +15,7 @@
   *Email    :  zhumushun3550@163.com  
 ***************************************************************************************************/
 const int m_gFuctionCount = 2;
+const int m_gDisplayCount = 2;//显示模式个数
 class CToolsContainer : public CWnd
 {
 public:
@@ -28,7 +29,10 @@ public:
 		fuc_Calculate = 0,//计算
 		fuc_VersionManager//版本管理
 	};
-
+	enum emDisplay{
+		display_Child = 0,//内嵌模式
+		display_Popup,//弹出式
+	};
 public:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
@@ -37,16 +41,29 @@ public:
 
 	afx_msg LRESULT OnFuctionClickOn(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnFuctionClickUp(WPARAM wParam, LPARAM lParam);
+	//afx_msg void    OnSelectChange(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void    OnSelectChange();
+	//afx_msg void OnSelectChange(WPARAM wParam, LPARAM lParam);
+
 public:
 	virtual void  DrawMain(CDC* pDC);
 
 private:
 	/*创建功能按钮*/
 	void CreateButton();
-	void ResizeFuction();
+	void CreateCombox();
+	void ResizeWnd();
+	void ReSizeChild();
+	void ResizePopUp();
+	void DestoryChildWnd();
 	int  GetFuctionWidth(int nIndex = 0);
 	CString GetFuctionText(int nIndex = 0);
 private:
 	CToolsButton *m_pBtnArray[m_gFuctionCount];
+	int  m_nDisplayModel;////显示模式  0,内嵌   1,弹出
+	CComboBox* m_pComBoxDisplay;
+	CWnd* m_pChildWnd;
+	std::vector<CRect> m_vctBtnRect;
+	CRect m_rcMain,m_rcChild;
 public:
 };
